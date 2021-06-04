@@ -35,7 +35,7 @@ exports.onWrite_User = firestore
       id,
     }
     //Get index name from dictionary
-    const algolisIndexName = index_dic[schoolID]
+    const algolisIndexName = index_dic[schoolName][ALGOLIA_INDEX_NAME]
     const index = client.initIndex(algolisIndexName)
 
     // Update to the algolia index
