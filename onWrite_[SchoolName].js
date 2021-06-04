@@ -2,6 +2,7 @@
 
 const school = 'Rochester'
 
+//index_dic = {[schoolName]:{FIRESTORE_INDEX_ID, ALGOLIA_INDEX_NAME}}
 const index_dic = require('./dictionary/dictionary_courses')
 import { config, firestore } from 'firebase-functions'
 
