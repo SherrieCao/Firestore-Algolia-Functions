@@ -7,7 +7,7 @@ admin.initializeApp()
 const db = admin.firestore()
 
 exports.onUserProfilePicUpdate = functions.firestore
-  .document('users/{userID}')
+  .document('[YOUR_DOC_LOC]')
   .onUpdate((change, context) => {
     const data = change.after.data()
     const previousData = change.before.data()
