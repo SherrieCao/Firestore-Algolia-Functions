@@ -8,7 +8,7 @@ const firebaseConfig = require('./config.js')
 const serviceAccount = require('./serviceAccountKey.json')
 const data = require(index_dic[school]['DATA_LOCATION'])
 
-const collectionKey = '/schools/0dd4CHNnhNgBBQih20AW/classes'
+const collectionKey = `/schools/${index_dic[school][FIRESTORE_INDEX_ID]}/classes`
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: firebaseConfig.databaseURL,
