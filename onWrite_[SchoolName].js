@@ -11,6 +11,7 @@ initializeApp()
 
 import algoliasearch from 'algoliasearch'
 
+//Set up config variables with Algolia keys: $ firebase functions:config:set algolia.appid="YOUR_APP_ID" algolia.apikey="YOUR_API_KEY"
 const ALGOLIA_ID = config().algolia.appid
 const ALGOLIA_ADMIN_KEY = config().algolia.apikey
 const client = algoliasearch(ALGOLIA_ID, ALGOLIA_ADMIN_KEY)
@@ -60,53 +61,3 @@ export const onWrite_Rochester = firestore
       )
     }
   })
-
-/*exports.algoliaSyncTest = functions.firestore
-  .document(`schools/{doc}`)
-  .onWrite(async (change, _context) => {
-    const oldData = change.before
-    const newData = change.after
-    const data = newData.data()
-    const objectID = newData.id // <-- prop name is important
-
-    if (!newData.exists && oldData.exists) {
-      // deleting
-      return index.deleteObject(objectID)
-    } else {
-      // creating & updating
-      return index.saveObject(
-        Object.assign(
-          {},
-          {
-            objectID,
-          },
-          data
-        )
-      )
-    }
-  })*/
-// Update the search index every time a blog post is written.
-/*exports.onSchoolCreated = functions.firestore
-  .document('schools/0npNiozV4EhrEgbf9yKp/classes/{classId}')
-  .onCreate((snap, context) => {
-    // Get the note document
-    const courseInfo = snap.data()
-    const course = courseInfo['Course']
-    const courseTitle = courseInfo['Title']
-    const courseCRN = courseInfo['CRN']
-    const courseDays = courseInfo['Days']
-    const courseTimes = courseInfo['Times']
-
-    const courseIndex = {
-      objectID: context.params.classId,
-      course,
-      courseTitle,
-      courseCRN,
-      courseDays,
-      courseTimes,
-    }
-
-    // Write to the algolia index
-    const index = client.initIndex(ALGOLIA_INDEX_NAME)
-    return index.saveObject(courseIndex)
-  })*/
