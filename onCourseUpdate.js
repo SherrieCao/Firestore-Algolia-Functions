@@ -7,12 +7,12 @@ admin.initializeApp()
 const db = admin.firestore()
 
 exports.onCourseUpdate = functions.firestore
-  .document(`schools/{schoolId}/classes/{classId}`)
+  .document([YOUR_DOC_LOC])
   .onUpdate((change, context) => {
     // Retrieve the current and previous value
     const data = change.after.data()
     const previousData = change.before.data()
-    // We'll only update if the course basic info (Course, Title) has changed.
+    // We'll only update if desired fields have changed.
     // This is crucial to prevent infinite loops.
     if (
       data.Title == previousData.Title &&
