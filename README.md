@@ -10,6 +10,6 @@ Some explanation bc of omitted files:
   <ul>Set up config variables with Algolia keys: $ firebase functions:config:set algolia.appid="YOUR_APP_ID" algolia.apikey="YOUR_API_KEY"</ul>
 </li>
 
-If you are interested in the project using these functions, check out some snippets here: https://github.com/SherrieCao/react-native-app-snippets
+If you are interested in the project using these functions, check out some snippets here: https://github.com/SherrieCao/react-native-chat-app-snippets
 
 Cheers! 
